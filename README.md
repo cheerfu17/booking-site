@@ -3,9 +3,9 @@ The project was created to solve the problem with booking meeting rooms.
 
 ## Contents
 - [Technologies](#Technologies)
-- [Beginning of work](#Beginning-of-work)
+- [Beginning of work](#Beginning_of_work)
 - [Development](#Development)
-- [The project team](#The-project-team)
+- [The project team](#The_project_team)
 
 
 ## Technologies
@@ -14,7 +14,7 @@ The project was created to solve the problem with booking meeting rooms.
 - [Sequelize ORM](https://sequelize.org/)
 
 
-## Beginning-of-work
+## Beginning of work
 
 To install dependencies, run the command:
 ```sh
@@ -34,7 +34,7 @@ npm run dev
 ```
 
 
-## The-project-team
+## The project team
 
 - Daria Aleksandrova
 - Uri Ignatiev
