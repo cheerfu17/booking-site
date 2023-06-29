@@ -4,7 +4,7 @@ The project was created to solve the problem with booking meeting rooms.
 ## Contents
 - [Technologies](#Technologies)
 - [Beginning of work](#Beginning-of-work)
-- [Development] (#Development)
+- [Development](#Development)
 - [The project team](#The-project-team)
 
 
@@ -36,8 +36,8 @@ npm run dev
 
 ## The-project-team
 
-- [Daria Aleksandrova]
-- [Uri Ignatiev]
-- [Christina Vaganova]
-- [Leonid Kirilov]
-- [Vladislav Safiullin]
+- Daria Aleksandrova
+- Uri Ignatiev
+- Christina Vaganova
+- Leonid Kirilov
+- Vladislav Safiullin
