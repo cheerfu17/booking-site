@@ -17,3 +17,4 @@ User.init({
     name: 'user'
 });
 
+export default User;
