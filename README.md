@@ -30,7 +30,7 @@ To install and run the project, you need [NodeJS](https://nodejs.org/).
 ### Starting the Development Server
 To start the development server, run the command:
 ```sh
-npm run dev
+$ npm run dev
 ```
 
 <a name="The_project_team"></a> 
