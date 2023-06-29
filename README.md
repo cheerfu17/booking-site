@@ -13,7 +13,7 @@ The project was created to solve the problem with booking meeting rooms.
 - [Express](https://expressjs.com/ru/)
 - [Sequelize ORM](https://sequelize.org/)
 
-
+<a name="Beginning_of_work"></a> 
 ## Beginning of work
 
 To install dependencies, run the command:
@@ -33,7 +33,7 @@ To start the development server, run the command:
 npm run dev
 ```
 
-
+<a name="The_project_team"></a> 
 ## The project team
 
 - Daria Aleksandrova
