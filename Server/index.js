@@ -1,10 +1,17 @@
 import "dotenv/config";
 import express from "express";
 import sequelize from "./database.js";
-const PORT = process.env.PORT || 5050;
+import UserRouter from "./Router/UserRouter.js";
+import DivisionRouter from "./Router/DivisionRouter.js";
+
+const PORT = process.env.PORT || 5055;
 const app = express();
 
+app.use('/api', UserRouter)
+app.use('/api', DivisionRouter)
+
 app.get("/", (req, res) => {res.json("Welcome page")});
+
 
 function startServer(){
     try {
