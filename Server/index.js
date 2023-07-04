@@ -6,7 +6,7 @@ import authRouter from "./Routers/authRouter.js";
 
 const PORT = process.env.PORT || 5050;
 const app = express();
-
+app.use(express.json());
 app.use('/api', divisionRouter);
 app.use('/api', authRouter);
 app.get("/", (req, res) => {res.json("Welcome page")});
