@@ -5,12 +5,12 @@ class apiError extends Error{
         this.message = message;
     }
 
-    static badRequest(message) {
-        return new apiError(400, message);
+    static notFound(message){
+        return new apiError(404, message);
     }
 
-    static notFound(message) {
-        return new apiError(404, message);
+    static badRequest(message) {
+        return new apiError(400, message);
     }
 
     static internal(message) {
