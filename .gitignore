@@ -1,5 +1,5 @@
-**/Server/node_modules
+**node_modules
 **/Server/.env
-**/Server/package-lock.json
+**package-lock.json
 **/Server/database.db
 **/Server/database.sqlite
