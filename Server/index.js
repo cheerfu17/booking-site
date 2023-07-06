@@ -1,7 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import sequelize from "./database.js";
-import divisionRouter from "./Routers/dvisionRouter.js";
+import divisionRouter from "./Routers/divisionRouter.js";
 import authRouter from "./Routers/authRouter.js";
 import userRouter from "./Routers/userRouter.js";
 
