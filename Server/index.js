@@ -4,6 +4,7 @@ import sequelize from "./database.js";
 import divisionRouter from "./Routers/dvisionRouter.js";
 import authRouter from "./Routers/authRouter.js";
 import userRouter from "./Routers/userRouter.js";
+import hallRouter from "./Routers/hallRouter.js";
 
 const PORT = process.env.PORT || 5050;
 const app = express();
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use('/api', divisionRouter);
 app.use('/api', authRouter);
 app.use('/api', userRouter);
+app.use("/api", hallRouter)
 app.get("/", (req, res) => {res.json("Welcome page")});
 
 
