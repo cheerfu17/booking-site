@@ -1,48 +1,48 @@
 import hallService from "../Services/hallService.js";
 
 class hallController{
-    async get(req, res){
+    async get(req, res, next){
         try {
             const halls = await hallService.get();
             return res.json(halls);
         } catch (error) {
-            res.status(500).json({"error": error.message}); 
+            next(error);
         }
     }
 
-    async create(req, res){
+    async create(req, res, next){
         try {
             const hall = await hallService.create(req.body);
             return res.json(hall);
         } catch (error) {
-            res.status(500).json({"error": error.message}); 
+            next(error);
         }
     }
 
-    async getOne(req, res){
+    async getOne(req, res, next){
         try {
             const hall = await hallService.getOne(req.params.id);
             return res.json(hall);
         } catch (error) {
-            res.status(500).json({"error": error.message}); 
+            next(error);
         }
     }
 
-    async patch(req, res){
+    async patch(req, res, next){
         try {
             const hall = await hallService.patch(req.params.id, req.body);
             return res.json(hall);
         } catch (error) {
-            res.status(500).json({"error": error.message}); 
+            next(error);
         }
     }
     
-    async delete(req, res){
+    async delete(req, res, next){
         try {
             const result = await hallService.delete(req.params.id);
             return res.json(result);
         } catch (error) {
-            res.status(500).json({"error": error.message}); 
+            next(error);
         }
     }
 }

@@ -1,44 +1,44 @@
 import userService from "../Services/userService.js";
 
 class userController{
-    async create(req, res){
+    async create(req, res, next){
         try {
             const user = await userService.create(req.body);
             return res.json(user);
         } catch (error) {
-            res.status(500).json({"error": error.message}); 
+            next(error);
         }
     }
-    async getAll(req, res){
+    async getAll(req, res, next){
         try{
             const user = await userService.getAll();
             return res.json(user);
         }catch (error) {
-            res.status(500).json({"error": error.message}); 
+            next(error);
         }
     }
-    async getOne(req, res){
+    async getOne(req, res, next){
         try{
             const user = await userService.getOne(req.params.id);
             return res.json(user);
         }catch (error) {
-            res.status(500).json({"error": error.message}); 
+            next(error);
         }
     }
-    async edit(req, res){
+    async edit(req, res, next){
         try{
             const user = await userService.edit(req.params.id, req.body);
             return res.json(user);
         }catch (error) {
-            res.status(500).json({"error": error.message}); 
+            next(error);
         }
     }
-    async delete(req, res){
+    async delete(req, res, next){
         try{
             const user = await userService.delete(req.params.id);
             return res.json(user);
         }catch (error) {
-            res.status(500).json({"error": error.message});  
+            next(error);
         }
     }
 }

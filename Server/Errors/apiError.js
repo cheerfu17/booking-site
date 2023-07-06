@@ -1,5 +1,3 @@
-
-
 class apiError extends Error{
     constructor(status, message){
         super();
@@ -8,6 +6,10 @@ class apiError extends Error{
     }
 
     static badRequest(message) {
+        return new apiError(400, message);
+    }
+
+    static notFound(message) {
         return new apiError(404, message);
     }
 

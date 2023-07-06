@@ -1,4 +1,5 @@
 import { User } from "../Models/Models.js";
+import apiError from "../Errors/apiError.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
@@ -15,7 +16,8 @@ const generateToken = (id, name, email) => {
 class authService{
     async signUp(data){
         const candidate = await User.findOne({where: {email: data.email}});
-        if (candidate) throw new Error("User with this email address already exists");
+        
+        if (candidate) throw apiError.badRequest("User with this email address already exists");
         const hashPassword = await bcrypt.hashSync(data.password, 5);
         const newUser = await User.create({"name": data.name, "email": data.email, "password": hashPassword});
         return newUser;
@@ -23,9 +25,9 @@ class authService{
 
     async signIn(data){
         const user = await User.findOne({where: {email: data.email}});
-        if (!user) throw new Error("User with this email was not found");
+        if (!user) throw apiError.notFound("User with this email was not found");
         const validPassword = bcrypt.compareSync(data.password, user.password);
-        if (!validPassword) throw new Error("Incorrect password");
+        if (!validPassword) throw apiError.badRequest("Incorrect password");
         const token = generateToken(user.id, user.name, user.email);
         return token;
     }

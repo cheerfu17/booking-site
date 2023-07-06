@@ -1,43 +1,43 @@
 import bookingService from "../Services/bookingService.js";
 
 class bookingController{
-    async get(req, res){
+    async get(req, res, next){
         try {
             return res.json(await bookingService.get());
         } catch (error) {
-            res.status(500).json({"error": error.message}); 
+            next(error); 
         }
     }
 
-    async getOne(req, res){
+    async getOne(req, res, next){
         try {
             return res.json(await bookingService.getOne(req.params.id));
         } catch (error) {
-            res.status(500).json({"error": error.message}); 
+            next(error); 
         }
     }
 
-    async create(req, res){
+    async create(req, res, next){
         try {
             return res.json(await bookingService.create(req.body));
         } catch (error) {
-            res.status(500).json({"error": error.message}); 
+            next(error); 
         }
     }
 
-    async patch(req, res){
+    async patch(req, res, next){
         try {
             return res.json(await bookingService.patch(req.params.id, req.body));
         } catch (error) {
-            res.status(500).json({"error": error.message}); 
+            next(error); 
         }
     }
 
-    async delete(req, res){
+    async delete(req, res, next){
         try {
             return res.json(await bookingService.delete(req.params.id));
         } catch (error) {
-            res.status(500).json({"error": error.message}); 
+            next(error); 
         }
     }
 }
