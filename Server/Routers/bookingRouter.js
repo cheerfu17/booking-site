@@ -1,10 +1,11 @@
 import { Router } from "express";
+import bookingController from "../Controllers/bookingController.js";
 const bookingRouter = new Router();
 
-bookingRouter.get("/booking", (req, res) => {res.json("GET booking")});
-bookingRouter.get("/booking/:id", (req, res) => {res.json("GET id booking")});
-bookingRouter.post("/booking", (req, res) => {res.json("POST booking")});
-bookingRouter.put("/booking/:id", (req, res) => {res.json("PUT booking")});
-bookingRouter.delete("/booking/:id", (req, res) => {res.json("DELETE booking")});
+bookingRouter.get("/booking", bookingController.get);
+bookingRouter.get("/booking/:id", bookingController.getOne);
+bookingRouter.post("/booking", bookingController.create);
+bookingRouter.put("/booking/:id", bookingController.patch);
+bookingRouter.delete("/booking/:id", bookingController.delete);
 
 export default bookingRouter;
