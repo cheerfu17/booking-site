@@ -1,10 +1,11 @@
 import { Router } from "express";
+import hallController from "../Controllers/hallController.js";
 const hallRouter = new Router();
 
-hallRouter.get("/hall", (req, res) => {res.status(200)});
-hallRouter.get("/hall/:id", (req, res) => {res.status(200)});
-hallRouter.post("/hall", (req, res) => {res.status(200)});
-hallRouter.put("/hall/:id", (req, res) => {res.status(200)});
-hallRouter.delete("/hall/:id", (req, res) => {res.status(200)});
+hallRouter.get("/hall", hallController.get);
+hallRouter.get("/hall/:id", hallController.getOne);
+hallRouter.post("/hall", hallController.create);
+hallRouter.put("/hall/:id", hallController.patch);
+hallRouter.delete("/hall/:id", hallController.delete);
 
 export default hallRouter;
