@@ -19,15 +19,18 @@ class bookingController{
 
     async create(req, res, next){
         try {
+            req.body.UserId = req.user.id;
             return res.json(await bookingService.create(req.body));
         } catch (error) {
+            console.log(error.message);
             next(error); 
         }
     }
 
     async patch(req, res, next){
         try {
-            return res.json(await bookingService.patch(req.params.id, req.body));
+            req.body.UserId = req.user.id;
+            return res.json(await bookingService.patch(req.params.id, req.body, req.user));
         } catch (error) {
             next(error); 
         }
@@ -35,7 +38,8 @@ class bookingController{
 
     async delete(req, res, next){
         try {
-            return res.json(await bookingService.delete(req.params.id));
+            req.body.UserId = req.user.id;
+            return res.json(await bookingService.delete(req.params.id, req.user));
         } catch (error) {
             next(error); 
         }
