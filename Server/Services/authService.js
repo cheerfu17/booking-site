@@ -1,13 +1,14 @@
-import { User } from "../Models/Models.js";
+import { Role, User } from "../Models/Models.js";
 import apiError from "../Errors/apiError.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-const generateToken = (id, name, email) => {
+const generateToken = (id, name, email, role) => {
     const payload = {
         id,
         name,
-        email
+        email,
+        role
     };
     const token = jwt.sign(payload, process.env.SECRET_KEY || "SECRET_KEY", {expiresIn: "24h"});
     return token;
@@ -15,11 +16,15 @@ const generateToken = (id, name, email) => {
 
 class authService{
     async signUp(data){
-        const candidate = await User.findOne({where: {email: data.email}});
-        
+        const candidate = await User.findOne({where: {email: data.email}});        
         if (candidate) throw apiError.badRequest("User with this email address already exists");
         const hashPassword = await bcrypt.hashSync(data.password, 5);
-        const newUser = await User.create({"name": data.name, "email": data.email, "password": hashPassword});
+        const userRole = await Role.findOne({where: {"name": "USER"}});
+        const newUser = await User.create({
+            "name": data.name, 
+            "email": data.email, 
+            "password": hashPassword, 
+            "RoleId": userRole.id});
         return newUser;
     }
 
@@ -28,7 +33,7 @@ class authService{
         if (!user) throw apiError.notFound("User with this email was not found");
         const validPassword = bcrypt.compareSync(data.password, user.password);
         if (!validPassword) throw apiError.badRequest("Incorrect password");
-        const token = generateToken(user.id, user.name, user.email);
+        const token = generateToken(user.id, user.name, user.email, user.RoleId);
         return token;
     }
 }
