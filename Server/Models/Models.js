@@ -53,8 +53,11 @@ Role.init({
 
 Role.hasOne(User);
 Division.hasMany(User);
-User.belongsToMany(Hall, {through: Booking});
-Hall.belongsToMany(User, {through: Booking});
+
+User.hasMany(Booking);
+Hall.hasMany(Booking);
+// User.belongsToMany(Hall, {through: Booking});
+// Hall.belongsToMany(User, {through: Booking});
 
 
 export {User, Role, Hall, Booking, Division};
