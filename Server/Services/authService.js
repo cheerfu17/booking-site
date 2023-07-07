@@ -33,7 +33,8 @@ class authService{
         if (!user) throw apiError.notFound("User with this email was not found");
         const validPassword = bcrypt.compareSync(data.password, user.password);
         if (!validPassword) throw apiError.badRequest("Incorrect password");
-        const token = generateToken(user.id, user.name, user.email, user.RoleId);
+        const role = await Role.findByPk(user.RoleId);
+        const token = generateToken(user.id, user.name, user.email, role.name);
         return token;
     }
 }
