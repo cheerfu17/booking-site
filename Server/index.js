@@ -5,6 +5,7 @@ import divisionRouter from "./Routers/divisionRouter.js";
 import authRouter from "./Routers/authRouter.js";
 import userRouter from "./Routers/userRouter.js";
 import hallRouter from "./Routers/hallRouter.js";
+import errorHandlingMiddleware from "./Middleware/errorHandlingMiddleware.js";
 
 const PORT = process.env.PORT || 5050;
 const app = express();
@@ -14,7 +15,7 @@ app.use('/api', authRouter);
 app.use('/api', userRouter);
 app.use('/api', hallRouter);
 app.get("/", (req, res) => {res.json("Welcome page")});
-
+app.use(errorHandlingMiddleware);
 
 function startServer(){
     try {
