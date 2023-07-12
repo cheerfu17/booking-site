@@ -55,7 +55,9 @@ Role.hasOne(User);
 Division.hasMany(User);
 
 User.hasMany(Booking);
+Booking.belongsTo(User);
 Hall.hasMany(Booking);
+Booking.belongsTo(Hall);
 // User.belongsToMany(Hall, {through: Booking});
 // Hall.belongsToMany(User, {through: Booking});
 

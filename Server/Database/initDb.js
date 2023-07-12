@@ -2,7 +2,7 @@ import sequelize from "./database.js";
 import { Role, User } from "../Models/Models.js";
 
 export default async function (){
-    await sequelize.sync({force: true}).then(() => {console.log("Database is synchronized")});
+    await sequelize.sync({force: false}).then(() => {console.log("Database is synchronized")});
 
     const roles = await Role.findAll();
     if (!roles.length){

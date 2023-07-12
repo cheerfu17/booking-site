@@ -1,9 +1,9 @@
-import { Booking } from "../Models/Models.js";
+import { Booking, Hall, User } from "../Models/Models.js";
 import apiError from "../Errors/apiError.js";
-import { Op } from "sequelize";
+import { Model, Op } from "sequelize";
 class bookingService{
     async get(){
-        const bookings = await Booking.findAll();
+        const bookings = await Booking.findAll({include: [{model: User}, {model: Hall}]});
         if (!bookings.length) throw apiError.notFound("Notes not found");
         return bookings;
     }

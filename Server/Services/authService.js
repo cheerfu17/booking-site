@@ -25,7 +25,7 @@ class authService{
             "email": data.email, 
             "password": hashPassword, 
             "RoleId": userRole.id});
-        return newUser;
+        return generateToken(newUser.id, newUser.name, newUser.email, userRole.name);
     }
 
     async signIn(data){
@@ -35,6 +35,11 @@ class authService{
         if (!validPassword) throw apiError.badRequest("Incorrect password");
         const role = await Role.findByPk(user.RoleId);
         const token = generateToken(user.id, user.name, user.email, role.name);
+        return token;
+    }
+
+    async check(user){
+        const token = generateToken(user.id, user.name, user.email, user.role);
         return token;
     }
 }

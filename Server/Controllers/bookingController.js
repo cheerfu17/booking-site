@@ -5,6 +5,7 @@ class bookingController{
         try {
             return res.json(await bookingService.get());
         } catch (error) {
+            console.log(error);
             next(error); 
         }
     }
