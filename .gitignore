@@ -3,3 +3,6 @@
 **package-lock.json
 **/Server/database.db
 **/Server/database.sqlite
+**/Client/booking-site/.env
+**/Client/booking-site/.gitignore
+**/Client/booking-site/package-lock.json
