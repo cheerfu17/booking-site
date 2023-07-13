@@ -20,13 +20,11 @@ class divisionService{
         return division;
     }   
     
-
     async edit(id,data){
         const division = await Division.findByPk(id);
         if (!division) throw apiError.notFound("Division not found");
         return await division.update(data);
     }
-
 
     async delete(id){
         const division = await Division.findByPk(id);
