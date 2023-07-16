@@ -4,7 +4,6 @@ import { Model, Op } from "sequelize";
 class bookingService{
     async get(){
         const bookings = await Booking.findAll({include: [{model: User}, {model: Hall}]});
-        if (!bookings.length) throw apiError.notFound("Notes not found");
         return bookings;
     }
 
