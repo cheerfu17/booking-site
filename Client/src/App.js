@@ -7,7 +7,7 @@ import { Context } from "./index";
 import { check } from "./components/http/userAPI";
 import { getBooking, getHalls } from "./components/http/bookingAPI";
 import { Spinner } from "react-bootstrap";
-import { _allowStateChangesInsideComputed } from "mobx";
+
 
 const App = observer (() => {
   const {user, booking} = useContext(Context);
@@ -17,7 +17,6 @@ const App = observer (() => {
     try {
       setLoading(true);
       const data = await getBooking();
-      console.log(data);
       booking.setBookingList(data);
     } catch (error) {
       console.log("error")
@@ -30,7 +29,6 @@ const App = observer (() => {
     try {
       setLoading(true);
       const data = await check();
-      console.log(data);
       user.setIsAuth(true);
       user.setUser(data);
     } catch (error) {
@@ -44,7 +42,6 @@ const App = observer (() => {
     try {
       setLoading(true);
       const data = await getHalls();
-      console.log(data);
       booking.setHallList(data);
     } catch (error) {
       console.log("error")
@@ -62,21 +59,6 @@ const App = observer (() => {
   fetchData();
 
   }, [user, booking]);
-  //   check().then(data => {
-  //     console.log(data);
-  //     user.setIsAuth(true);
-  //     user.setUser(data);
-  //   }).catch(() => {
-  //     console.log("Error");
-  //     user.setIsAuth(false);
-  //     user.setUser({});
-  //     localStorage.removeItem("token");
-  //   }).finally(() => {setLoading(false)});
-
-  //   getBooking().then((data)=>{
-  //     console.log(data);
-  //     booking.setBookingList(data);
-  // }).catch(()=>console.log("error")).finally(()=> {console.log("asdwqd")});}, [booking])
 
   if (loading){
     return <Spinner animation={"grow"}/>

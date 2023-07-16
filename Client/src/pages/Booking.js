@@ -1,9 +1,6 @@
 import { observer } from 'mobx-react-lite';
-import React, { useContext, useEffect, useState } from 'react';
+import React, {useState} from 'react';
 import { Button, Container } from 'react-bootstrap';
-import BookingItem from '../components/BookingItem.js';
-import { Context } from '../index.js';
-import { getBooking } from '../components/http/bookingAPI.js';
 import BookingList from '../components/BookingList.js';
 import CreateBookingNote from '../components/modals/CreateBookingNote.js';
 

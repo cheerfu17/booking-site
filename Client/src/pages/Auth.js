@@ -34,7 +34,6 @@ const Auth = observer(() => {
         } catch (error) {
             alert(error);
         }
-
     }
 
     

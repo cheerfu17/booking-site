@@ -10,7 +10,7 @@ const BookingList = observer(() => {
         <Container>
             <Card>
                 {booking.bookingList.map(({id, description, User, Hall}, index) =>
-                    <BookingItem index={index + 1} b_id={id} description={description} User={User} Hall={Hall} key={id}/> 
+                    <BookingItem index={index + 1} id={id} description={description} User={User} Hall={Hall} key={id}/> 
                 )}
             </Card>
         </Container>

@@ -1,7 +1,9 @@
+import { makeAutoObservable } from "mobx";
 export default class BookingStore{
     constructor() {
         this._bookingList = [];
         this._hallList = [];
+        makeAutoObservable(this);
     }
 
     setBookingList(bookingList){

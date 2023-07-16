@@ -1,14 +1,11 @@
 import React, { useContext } from 'react';
-import {Routes, Route, Navigate, useLocation} from 'react-router-dom'
+import {Routes, Route, Navigate} from 'react-router-dom'
 import { authRoutes, publicRoutes } from '../routes';
 import { Context } from '../index.js';
 import { observer } from 'mobx-react-lite';
-import { BOOKING_ROUTE, LOGIN_ROUTE, USERS_ROUTE } from '../utils/consts';
+import { BOOKING_ROUTE, LOGIN_ROUTE } from '../utils/consts';
 const AppRouter = observer(() => {
-
     const {user} = useContext(Context);
-    const location = useLocation();
-    console.log(location.pathname === "/login");
     return (
         <Routes>
             {user.isAuth && authRoutes.map(({path, Component}) =>

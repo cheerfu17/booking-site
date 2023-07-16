@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { BOOKING_ROUTE, HALLS_ROUTE, LOGIN_ROUTE, USERS_ROUTE } from '../utils/consts';
+import { ADMIN_ROUTE, BOOKING_ROUTE, DIVISION_ROUTE, HALLS_ROUTE, LOGIN_ROUTE, USERS_ROUTE } from '../utils/consts';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../index.js';
 import { NavLink } from 'react-router-dom';
@@ -19,6 +19,12 @@ const NavBar = observer(() => {
                         <NavLink className="nav-link" to={BOOKING_ROUTE} >Booking</NavLink>
                         <NavLink className="nav-link" to={USERS_ROUTE}>Users</NavLink>
                         <NavLink className="nav-link" to={HALLS_ROUTE}>Halls</NavLink>
+                        <NavLink className="nav-link" to={DIVISION_ROUTE}>Divisions</NavLink>
+                        {user.user.role === "ADMIN" ?
+                            <NavLink className="nav-link" to={ADMIN_ROUTE}>Admin</NavLink>
+                            :
+                            <div></div>
+                        }
                         </Nav>
                         :
                         <Nav className="me-auto">
@@ -36,7 +42,6 @@ const NavBar = observer(() => {
                         <NavLink className="nav-link" >Login</NavLink>
                     </Nav>
                     }
-
                 </Navbar.Collapse>
             </Container>
         </Navbar>

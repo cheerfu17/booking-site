@@ -2,9 +2,10 @@ import Admin from "./pages/Admin"
 import Booking from "./pages/Booking"
 import BookingPage from "./pages/BookingPage"
 import Auth from "./pages/Auth"
-import { ADMIN_ROUTE, BOOKING_NOTE_ROUTE, BOOKING_ROUTE, HALLS_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, USERS_ROUTE } from "./utils/consts"
+import { ADMIN_ROUTE, BOOKING_NOTE_ROUTE, BOOKING_ROUTE, DIVISION_ROUTE, HALLS_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, USERS_ROUTE } from "./utils/consts"
 import Users from "./pages/Users"
 import Halls from "./pages/Halls"
+import Divisions from "./pages/Divisions"
 
 export const authRoutes = [
     {
@@ -26,6 +27,10 @@ export const authRoutes = [
     {
         path: HALLS_ROUTE,
         Component: Halls
+    },
+    {
+        path: DIVISION_ROUTE,
+        Component: Divisions
     }
 ]
 
