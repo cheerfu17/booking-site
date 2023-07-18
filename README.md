@@ -36,8 +36,8 @@ $ npm run dev
 <a name="The_project_team"></a> 
 ## The project team
 
-- Daria Aleksandrova
-- Uri Ignatiev
-- Christina Vaganova
-- Leonid Kirilov
-- Vladislav Safiullin
+- [Daria Aleksandrova](https://github.com/DarAleksa)
+- [Yuri Ignatyev](https://github.com/17amarutu)
+- [Christina Vaganova](https://github.com/Chris-kis)
+- [Leonid Kirilov](https://github.com/liwonka)
+- [Vladislav Safiullin](https://github.com/cheerfu17)
