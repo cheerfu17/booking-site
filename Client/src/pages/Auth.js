@@ -54,17 +54,16 @@ const Auth = observer(() => {
                     <Row className='d-flex mt-3 justify-content-between'>
                         <Col className='d-flex justify-content-between'>
                             {isLogin ? 
-                            <div>
-                            Нет аккаунта?
-                            <NavLink className="ml-5" to={REGISTRATION_ROUTE}>Зарегистрируйтесь!</NavLink>
+                            <div className='d-flex flex-col mr-5'>
+                                <p>Нет аккаунта?</p>
+                                <NavLink style={{marginLeft: "5px"}} to={REGISTRATION_ROUTE}>Зарегистрируйтесь!</NavLink>
                             </div>
                             :
-                                <div>
-                                Есть аккаунт?
-                                <NavLink className="ml-5" to={LOGIN_ROUTE}>Авторизируйтесь!</NavLink>
-                                </div>
+                            <div className='d-flex flex-col mr-5'>
+                                <p>Есть аккаунт?</p>
+                                <NavLink style={{marginLeft: "5px"}} to={LOGIN_ROUTE}>Авторизируйтесь!</NavLink>
+                            </div>
                             }
-
                                 
                             <Button onClick={click}  variant={'outline-success'}>{isLogin ? 'Войти' : 'Зарегистрироваться'}</Button>
                         </Col>
